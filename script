@@ -1,0 +1,52 @@
+Livros = {}
+
+def adicionar_livro(titulo, autor, genero, ano):
+    Livros[titulo] = {"Autor": autor, "Genero": genero, "Ano": ano}
+    print("Mangá adicionado com sucesso!\n")
+
+def visualizar_livros():
+    if not Livros:
+        print("Nenhum mangá cadastrado.")
+    else:
+        print("Lista de Livros:")
+        for titulo, info in Livros.items():
+            print(f"Título: {titulo}")
+            print(f"Autor: {info[Autor]}")
+            print(f"Genero: {info[Genero]}")
+            print(f"Ano de Publicação: {info[Ano]}\n")
+
+def excluir_livro(titulo):
+    if titulo in Livros:
+        del Livros[titulo]
+        print(f"O Mangá {titulo} foi excluido com sucesso.\n")
+    else:
+        print(f"O Mangá {titulo} não foi encontrado.\n")
+
+def menu():
+    while True:
+        print("=== Gerenciador de Mangás ===")
+        print("1. Adicionar Mangá")
+        print("2. Visualizar Mangá")
+        print("3. Excluir Mangá")
+        print("4. Sair")
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            titulo = input("Digite o titulo do livro: ")
+            autor = input("Digite o nome do autor: ")
+            genero = input("Digite o gênero do livro: ")
+            ano = input("Digite o ano de publicação: ")
+            adicionar_livro(titulo, autor, genero, ano)
+        elif opcao == "2":
+            visualizar_livros()
+        elif opcao == "3":
+            titulo == input("Digite o titulo do mangá que deseja excluir: ")
+            excluir_livro(titulo)
+        elif opcao == "4":
+            print("Obrigado por usar o Mangos. さようなら! ")
+            break
+        else:
+            print("Opção inválida. Por favor, escolha uma opção valida.\n")
+
+if __name__ == "__main__":
+    menu()
